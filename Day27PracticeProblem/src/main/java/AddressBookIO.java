@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 class Contact {
     private String firstName;
@@ -39,7 +40,7 @@ public class AddressBookIO {
         displayContacts(contacts);
 
         // Adding a new contact
-        Contact newContact = new Contact("Alice", "Johnson", "789 Oak St", "Chicago", "IL", "60601", "555-789-1234", "alice@example.com");
+        Contact newContact = createNewContact();
         contacts.add(newContact);
 
         // Save the updated contact list to the file
@@ -90,5 +91,28 @@ public class AddressBookIO {
         for (Contact contact : contacts) {
             System.out.println(contact);
         }
+    }
+
+    private static Contact createNewContact() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter First Name:");
+        String firstName = scanner.nextLine();
+        System.out.println("Enter Last Name:");
+        String lastName = scanner.nextLine();
+        System.out.println("Enter Address:");
+        String address = scanner.nextLine();
+        System.out.println("Enter City:");
+        String city = scanner.nextLine();
+        System.out.println("Enter State:");
+        String state = scanner.nextLine();
+        System.out.println("Enter ZIP Code:");
+        String zip = scanner.nextLine();
+        System.out.println("Enter Phone Number:");
+        String phoneNumber = scanner.nextLine();
+        System.out.println("Enter Email:");
+        String email = scanner.nextLine();
+
+        return new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
     }
 }
